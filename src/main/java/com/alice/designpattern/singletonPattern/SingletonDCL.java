@@ -8,9 +8,11 @@ public class SingletonDCL {
     }
 
     public static SingletonDCL getInstance() {
-        synchronized (SingletonDCL.class) {
-            if (instance == null) {
-                instance = new SingletonDCL();
+        if (instance == null) {
+            synchronized (SingletonDCL.class) {
+                if (instance == null) {
+                    instance = new SingletonDCL();
+                }
             }
         }
         return instance;
